@@ -1,47 +1,309 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Crypto Bonos</title>
+<title>Crypto Bonos Argentina - Slots, Apuestas y Premios</title>
 
 <style>
-body{
-font-family:Arial;
-background:#111;
-color:white;
-text-align:center;
-padding:50px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-h1{
-color:#f5b942;
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
+  overflow-x: hidden;
 }
 
-.boton{
-display:inline-block;
-background:#f5b942;
-padding:15px 30px;
-color:black;
-text-decoration:none;
-font-weight:bold;
-border-radius:10px;
+/* Fondo animado */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 30px 0;
+}
+
+h1 {
+  font-size: 3em;
+  color: #ffd700;
+  text-shadow: 2px 2px 10px rgba(255, 215, 0, 0.5);
+  margin-bottom: 10px;
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 2px 2px 10px rgba(255, 215, 0, 0.5); }
+  50% { text-shadow: 2px 2px 20px rgba(255, 215, 0, 0.8); }
+}
+
+.subtitle {
+  font-size: 1.3em;
+  color: #ff6b6b;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.tagline {
+  font-size: 1em;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+/* Tarjetas de características */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.card {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 107, 107, 0.1) 100%);
+  border: 2px solid #ffd700;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 107, 107, 0.2) 100%);
+  border-color: #ff6b6b;
+}
+
+.card-icon {
+  font-size: 4em;
+  margin-bottom: 15px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.card:nth-child(2) .card-icon {
+  animation-delay: 0.2s;
+}
+
+.card:nth-child(3) .card-icon {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.card h2 {
+  font-size: 1.5em;
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #ddd;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+/* Botón de Registro */
+.cta-section {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.cta-text {
+  font-size: 1.8em;
+  color: #ffd700;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px rgba(255, 215, 0, 0.3);
+}
+
+.btn-register {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffd700 0%, #ff6b6b 100%);
+  padding: 20px 50px;
+  font-size: 1.4em;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.btn-register:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 50px rgba(255, 107, 107, 0.6);
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffd700 100%);
+}
+
+.btn-register:active {
+  transform: scale(0.98);
+}
+
+/* Sección de Beneficios */
+.benefits {
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid #ffd700;
+  border-radius: 15px;
+  padding: 30px;
+  margin: 40px 0;
+  text-align: center;
+}
+
+.benefits h3 {
+  font-size: 1.8em;
+  color: #ffd700;
+  margin-bottom: 20px;
+}
+
+.benefits-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.benefit-item {
+  padding: 15px;
+  background: rgba(255, 215, 0, 0.1);
+  border-left: 4px solid #ff6b6b;
+  border-radius: 5px;
+  font-size: 1.1em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
+  
+  .features {
+    grid-template-columns: 1fr;
+  }
+  
+  .btn-register {
+    padding: 15px 35px;
+    font-size: 1.1em;
+  }
+  
+  .cta-text {
+    font-size: 1.3em;
+  }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 215, 0, 0.3);
+  color: #888;
+  font-size: 0.9em;
+}
+
+footer p {
+  margin: 10px 0;
+}
+
+.warning {
+  color: #ff6b6b;
+  font-weight: bold;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Crypto Bonos Argentina</h1>
+<div class="container">
+  
+  <header>
+    <h1>🎰 CRYPTO BONOS ARGENTINA 🎰</h1>
+    <p class="subtitle">¡Los Mejores Bonos y Promociones para Criptomonedas!</p>
+    <p class="tagline">Slots • Apuestas Deportivas • Bonificaciones Exclusivas</p>
+  </header>
 
-<p>
-Descubrí promociones y bonos para usuarios de criptomonedas.
-</p>
+  <!-- Tarjetas de Características -->
+  <div class="features">
+    <div class="card">
+      <div class="card-icon">🎰</div>
+      <h2>Slots y Juegos</h2>
+      <p>¡Gira las máquinas tragamonedas y gana grandes premios! Bonos especiales cada día.</p>
+    </div>
 
-<a class="boton"
-href="https://coins.game/c/2625593_e17740d3">
-Registrarme
-</a>
+    <div class="card">
+      <div class="card-icon">⚽</div>
+      <h2>Apuestas Deportivas</h2>
+      <p>Apuesta en el Mundial y los mejores torneos internacionales. Cuotas competitivas.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🏆</div>
+      <h2>Premios y Bonificaciones</h2>
+      <p>Acceso a torneos especiales, bonos de bienvenida y cashback exclusivo.</p>
+    </div>
+  </div>
+
+  <!-- Sección de Beneficios -->
+  <div class="benefits">
+    <h3>✨ ¿POR QUÉ UNIRNOS? ✨</h3>
+    <div class="benefits-list">
+      <div class="benefit-item">💰 Bonos hasta 500% en depósitos</div>
+      <div class="benefit-item">🎁 Promociones diarias garantizadas</div>
+      <div class="benefit-item">⚡ Retiros rápidos y seguros</div>
+      <div class="benefit-item">🌍 Para usuarios de Argentina</div>
+      <div class="benefit-item">🔒 Plataforma 100% segura</div>
+      <div class="benefit-item">📱 Disponible en móvil y PC</div>
+    </div>
+  </div>
+
+  <!-- Botón de Registro -->
+  <div class="cta-section">
+    <p class="cta-text">🚀 ¡REGISTRATE AHORA Y GANA! 🚀</p>
+    <a class="btn-register" href="https://coins.game/c/2625593_e17740d3" target="_blank">
+      REGISTRARME GRATIS
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Creado con ❤️ para la comunidad cripto argentina</p>
+    <p><span class="warning">⚠️ Advertencia:</span> Las apuestas implican riesgo. Juega responsablemente.</p>
+    <p>© 2026 Crypto Bonos Argentina | Todos los derechos reservados</p>
+  </footer>
+
+</div>
 
 </body>
 </html>
